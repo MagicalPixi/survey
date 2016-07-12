@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --content-base . --hot --inline --port 7001 --display-error-details"
+    "start": "webpack-dev-server --content-base . --hot --inline --port 9003 --display-error-details"
   },
   "author": "",
   "license": "ISC",
@@ -20,13 +20,14 @@
     "webpack-dev-server": "^1.14.1"
   },
   "resources": [
+    "man"
   ],
-  "scenes": {
-  },
-  "scenesEdit": [
-  ],
+  "scenes": {},
+  "scenesEdit": [],
   "permission": {},
   "dependencies": {
+    "ejs": "^2.4.2",
+    "ejs-loader": "^0.3.0",
     "pixi-lib": "^x.x.x"
   }
 }

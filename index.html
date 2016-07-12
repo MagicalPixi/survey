@@ -2,9 +2,12 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;"/>
+
     <title>游戏</title>
     <style>
-        body{
+        body {
             margin: 0;
             position: absolute;
             top: 0;
@@ -12,13 +15,33 @@
             right: 0;
             bottom: 0;
         }
-        canvas{
+
+        canvas {
             width: 100%;
             height: 100%;
         }
     </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
+<div class="select-box">
+
+    <section class="select">
+
+        <h3>请选择你的武器</h3>
+
+        <ul>
+
+            <li>1.枪</li>
+            <li>2.刀</li>
+            <li>3.棍子</li>
+            <li>4.墨镜</li>
+
+        </ul>
+
+    </section>
+</div>
 
 </body>
 <script src="pixi.min.js"></script>
