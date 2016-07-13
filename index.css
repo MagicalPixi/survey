@@ -1,11 +1,12 @@
-.select-box{
+#select-box{
     box-sizing: border-box;
     width: 100%;
     position: fixed;
     bottom:0;
     left:0;
+    z-index:2;
 }
-.select-box .select{
+#select-box .select{
     box-sizing: border-box;
     border:double #ccc;
     padding: 10px;
@@ -13,17 +14,17 @@
     height: 100%;
 }
 
-.select-box h3{
+#select-box h3{
     margin:0 0 10px 0;
 }
 
-.select-box ul{
+#select-box ul{
     margin:0;
     padding:0;
     display: flex;
     flex-wrap: wrap;
 }
-.select-box ul > li{
+#select-box ul > li{
     margin:0 1% 5px 0;
     box-sizing: border-box;
     border:1px solid #bbb;
