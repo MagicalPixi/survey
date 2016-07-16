@@ -9,12 +9,13 @@ module.exports = function (render) {
   addResource(loader.add.bind(loader),function(){
 
     var man = require('../../sprites/man')
-
+    var man0 = require('../../sprites/man0')()
 
     var stage = new PIXI.Container()
 
-
     stage.addChild(man)
+
+    stage.addChild(man0)
 
     render(stage)
   });

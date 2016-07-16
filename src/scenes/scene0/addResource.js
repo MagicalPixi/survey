@@ -3,7 +3,10 @@ var json = [
 
 ];
 var png = [
-  'man'
+  'man',
+  'man0body',
+  'man0eye',
+  'man0foot'
 ];
 
 module.exports = function (add,callback) {

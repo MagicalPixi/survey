@@ -20,7 +20,10 @@
     "webpack-dev-server": "^1.14.1"
   },
   "resources": [
-    "man"
+    "man",
+    "man0body",
+    "man0eye",
+    "man0foot"
   ],
   "scenes": {},
   "scenesEdit": [],
