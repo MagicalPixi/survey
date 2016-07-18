@@ -29,5 +29,6 @@ var questionOne = questionManager();
 var unbind = questionOne.insertBy(selectBox)
 questionOne.onSelect(function (v) {
   unbind();
-  console.log(v)
+
+  
 })

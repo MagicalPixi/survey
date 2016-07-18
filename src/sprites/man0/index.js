@@ -9,6 +9,9 @@ var eyeR = require('../man0eye')()
 var footL = require('../man0foot')(true)
 var footR = require('../man0foot')()
 
+var sword = require('../man0sword')()
+var shield = require('../man0shield')()
+
 module.exports = function () {
   
   var container = new PIXI.Container()
@@ -24,6 +27,9 @@ module.exports = function () {
 
   container.addChild(footL)
   container.addChild(footR)
+
+  container.addChild(sword)
+  container.addChild(shield)
 
   var count = 0
 

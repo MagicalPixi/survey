@@ -1,5 +1,5 @@
 {
-  "name": "template",
+  "name": "survey",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -23,7 +23,9 @@
     "man",
     "man0body",
     "man0eye",
-    "man0foot"
+    "man0foot",
+    "man0sword",
+    "man0shield"
   ],
   "scenes": {},
   "scenesEdit": [],
@@ -31,6 +33,6 @@
   "dependencies": {
     "ejs": "^2.4.2",
     "ejs-loader": "^0.3.0",
-    "pixi-lib": "^x.x.x"
+    "pixi-lib": "^1.18.4"
   }
 }

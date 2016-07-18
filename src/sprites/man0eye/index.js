@@ -1,4 +1,5 @@
 var mySpriteFn = require('./sprite.js');
+var pixiLib = require('pixi-lib')
 
 function trace(x) {
   x = x%10
@@ -13,7 +14,7 @@ function trace(x) {
 module.exports = function (leftAside) {
   var mySprite = mySpriteFn();
 
-  mySprite.initX = leftAside ? 30 : 125
+  mySprite.initX = leftAside ? 32 : 125
   mySprite.x = mySprite.initX
   
   mySprite.y = 40
@@ -23,7 +24,8 @@ module.exports = function (leftAside) {
   var i = 0
 
   mySprite.render = function () {
-    this.x = this.initX + trace(i++)
+    
+    mySprite.x = mySprite.initX + pixiLib.math.boomerangTrace(i,5,leftAside)
   }
 
 
