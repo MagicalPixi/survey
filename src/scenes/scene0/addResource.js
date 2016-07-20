@@ -7,7 +7,9 @@ var png = [
   'man0eye',
   'man0foot',
   'man0sword',
-  'man0shield'
+  'man0shield',
+  'man0glasses',
+  'man0gun',
 ];
 
 module.exports = function (add,callback) {

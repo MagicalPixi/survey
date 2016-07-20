@@ -2,13 +2,13 @@ var pixiLib = require('pixi-lib');
 
 var args = [{
 
-  textures:pixiLib.getTextures('man'),
+  textures:pixiLib.getTextures('man0gun'),
 
   
 
     
 
-    "spriteName" :  "man" ,
+    "spriteName" :  "man0gun" ,
 
     
 

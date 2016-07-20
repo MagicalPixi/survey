@@ -12,12 +12,16 @@ var footR = require('../man0foot')()
 var sword = require('../man0sword')()
 var shield = require('../man0shield')()
 
+var glasses =  require('../man0glasses')()
+
+var gun = require('../man0gun')()
+
 module.exports = function () {
   
   var container = new PIXI.Container()
 
   container.x = 200
-  container.y = 200
+  container.y = 380
 
 
   container.addChild(body)
@@ -28,8 +32,10 @@ module.exports = function () {
   container.addChild(footL)
   container.addChild(footR)
 
-  container.addChild(sword)
-  container.addChild(shield)
+
+  //container.addChild(glasses)
+
+  //container.addChild(gun)
 
   var count = 0
 
@@ -41,6 +47,25 @@ module.exports = function () {
     }
   }
 
+  container.equip = function(type){
+
+    [shield,sword,gun,glasses].forEach(function (s) {
+      container.removeChild(s)
+    })
+
+    switch (type){
+      case 0:
+        container.addChild(shield)
+        container.addChild(sword)
+        break;
+      case 1:
+        container.addChild(gun)
+        break;
+      case 2:
+        container.addChild(glasses)
+        break;
+    }
+  }
 
   return container
   

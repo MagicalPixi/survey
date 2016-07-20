@@ -1,13 +1,18 @@
-<section class="select">
+<div id="select-box">
+    <section class="select">
 
-    <h3><%= data.title %></h3>
+        <h3><%= data.title %></h3>
 
-    <ul>
+        <ul>
 
-        <% data.anwsers.forEach(function(a,i){ %>
-            <li data-value="<%= a %>"><%= i %>.<%= a %></li>
-        <%}) %>
+            <% data.anwsers.forEach(function(a, i){ %>
+            <li data-value="<%= a %>" data-index="<%= i %>"><%= i + 1 %>.<%= a %></li>
+            <% }) %>
 
-    </ul>
+        </ul>
 
-</section>
+    </section>
+</div>
+<p class="op">
+    <button id="selectSubmit">确定</button>
+</p>

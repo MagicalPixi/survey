@@ -5,7 +5,7 @@ var questionFn = require('./questionOne.ejs')
 
 var questions = [{
   title:'请选择你的武器',
-  anwsers:['刀','枪','棍','墨镜']
+  anwsers:['刀','枪','墨镜']
 }]
 
 
@@ -17,14 +17,21 @@ module.exports = function (i) {
 
   var html = questionFn(questions[i])
 
-  var onClickCb = function () {}
+  var onClickCb = function () {};
+  var onSubmit = function () {};
 
-  var fn = function (e) {
+  function fn(e) {
+    var et = e.target
     var selectValue = e.target.dataset.value;
+    var index = parseInt(e.target.dataset.index);
+
     if(selectValue){
-      onClickCb(selectValue)
+      onClickCb(selectValue,index)
+    }else if(et.id === 'selectSubmit'){
+      onSubmit()
     }
   }
+
 
   return {
     insertBy:function (container) {
@@ -33,14 +40,24 @@ module.exports = function (i) {
       container.addEventListener('click',fn)
 
       return function unbind() {
-        container.innerHTML = ''
+        container.classList.add('hidden')
         container.removeEventListener('click',fn)
+
+        setTimeout(function(){
+          container.innerHTML = ''
+          container.classList.remove('hidden')
+        },500)
       }
     },
 
     onSelect:function (cb) {
       if(cb){
         onClickCb = cb
+      }
+    },
+    onSubmit:function (cb) {
+      if(cb){
+        onSubmit = cb
       }
     }
   }
