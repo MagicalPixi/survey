@@ -1,15 +1,11 @@
 var mySpriteFn = require('./sprite.js');
 var pixiLib = require('pixi-lib')
 
-module.exports = function () {
-  var sp = mySpriteFn()
+module.exports = function (arg) {
+  var sp = mySpriteFn(arg)
 
-  sp.x = 10
-  sp.initY = 220
-  sp.y = sp.initY
-
-  sp.scale.x = 0.3
-  sp.scale.y = 0.3
+  sp.initX = arg.x
+  sp.initY = arg.y
 
   var i = 0
 

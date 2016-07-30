@@ -1,18 +1,15 @@
 var mySpriteFn = require('./sprite.js');
 
-module.exports = function () {
+module.exports = function (arg) {
 
-  var sp = mySpriteFn();
+  var sp = mySpriteFn(arg);
 
-  sp.x = -18
-  sp.y = 20
-
-  sp.scale.x = 0.6
-  sp.scale.y = 0.6
+  sp.x = arg.x
+  sp.y = arg.y
 
   sp.render = function(){
 
   }
-
+  
   return sp
 }

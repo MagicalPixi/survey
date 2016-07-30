@@ -10,6 +10,8 @@ var png = [
   'man0shield',
   'man0glasses',
   'man0gun',
+  'man0head',
+  'sceneTree'
 ];
 
 module.exports = function (add,callback) {

@@ -27,7 +27,10 @@
     "man0sword",
     "man0shield",
     "man0glasses",
-    "man0gun"
+    "man0gun",
+    "man0head",
+    "man0body",
+    "sceneTree"
   ],
   "scenes": {},
   "scenesEdit": [],

@@ -1,40 +1,51 @@
 var loader = require('../../loader');
-var addResource = require('./addResource')
 
-var questionManager = require('../../questionManager')
+var pixiLib = require('pixi-lib')
 
-module.exports = function (render) {
+var startBtnStyle = function () {
 
-  //var control = pixiLib.audioControl('http://o8c60jr2y.bkt.clouddn.com/bg.mp3')
-  //control.play()
+  return {
+    padding: '5px 15px',
+    fontSize: '18px',
+    position: 'absolute',
+    left: '50%',
+    top: '80%',
+    transform: 'translate(-50%,-50%)',
+    webkitTransform: 'translate(-50%,-50%)',
+    transition:'all 0.3s',
+    webkitTransition:'all 0.3s',
+    border: '1px solid #999',
+    background: '#fff',
+    color: '#333',
+    borderRadius: '4px',
+    opacity:0,
+    cursor:'pointer',
+    zIndex:2,
+  }
+}
 
-  window.questionIndex = 0
+var btn = document.createElement('button')
+btn.innerText = '开始游戏'
 
-  var selectBox = document.querySelector('#select-box-container')
+pixiLib.utils.addStyle(btn, startBtnStyle())
 
-  var questionIndex = 0
-  var questionOne = questionManager(questionIndex);
+document.body.appendChild(btn)
 
+window.b = btn;
 
-  addResource(loader.add.bind(loader),function(){
+module.exports = function (render, loadingManager) {
 
-    var man0 = require('../../sprites/man0')()
+  console.log(loadingManager)
 
-    var stage = new PIXI.Container()
+  btn.style.opacity = 1
+  btn.style.top = '81%'
 
-    stage.addChild(man0)
+  btn.onclick = function () {
 
+    btn.remove()
 
-    var unbind = questionOne.insertBy(selectBox)
-    questionOne.onSelect(function (v,index) {
-      console.log(v,index)
+    loadingManager.remove()
 
-      man0.equip(index)
-    })
-    questionOne.onSubmit(function () {
-      unbind()
-    })
-
-    render(stage)
-  });
+    window.scene1(render)
+  }
 };
