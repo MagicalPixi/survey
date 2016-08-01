@@ -1,6 +1,5 @@
 var json = [
-  
-
+  'skeleton',
 ];
 var png = [
   'man0body',
@@ -11,7 +10,7 @@ var png = [
   'man0glasses',
   'man0gun',
   'man0head',
-  'sceneTree'
+  'sceneTree',
 ];
 
 module.exports = function (add,callback) {

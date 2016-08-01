@@ -5,6 +5,7 @@ var path = require('path');
 var qnUpload = require('gulp-qiniu');
 
 var src = path.resolve(__dirname,'../public/sprites/*/*.png');
+var src2 = path.resolve(__dirname,'../public/sprites/*/*.json');
 
 var audioSrc = path.resolve(__dirname,'../public/audio/*');
 
@@ -12,6 +13,7 @@ var optionDir = 'wx';
 
 module.exports = function(gulp){
   gulp.task('qiniu',function(){
+
     gulp.src(src).pipe(qnUpload({
       accessKey: "EyEwm6Bjadr4ojSFxpKWt6k-PoyT99D5l_qMCEaL",
       secretKey: "xOUHlBygVg_dIxPcgWmEVu7GG5jl_XVQ57mrV7o0",
@@ -21,7 +23,19 @@ module.exports = function(gulp){
       dir:optionDir,
       versionFile: './cdn.json'
     }))
+
+    gulp.src(src2).pipe(qnUpload({
+      accessKey: "EyEwm6Bjadr4ojSFxpKWt6k-PoyT99D5l_qMCEaL",
+      secretKey: "xOUHlBygVg_dIxPcgWmEVu7GG5jl_XVQ57mrV7o0",
+      bucket: "guoshencheng",
+      private: false
+    },{
+      dir:optionDir,
+      versionFile: './cdn2.json'
+    }))
+
   });
+
   //gulp.task('qiniu',function(){
   //  gulp.src(src).pipe(qnUpload({
   //    accessKey: "OoRT_gLqGqgXXZ1aR3L1iDIjvEYGRfWX86iqU14w",

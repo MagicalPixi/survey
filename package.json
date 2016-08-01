@@ -30,7 +30,8 @@
     "man0gun",
     "man0head",
     "man0body",
-    "sceneTree"
+    "sceneTree",
+    "skeleton"
   ],
   "scenes": {},
   "scenesEdit": [],

@@ -1,7 +1,15 @@
+@font-face {
+    font-family: 'iconfont';
+    src:url('/iconfont.ttf') format('truetype'),
+    url('/iconfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 #selectBoxContainer{
     background-color: #fff;
     box-sizing: border-box;
-    border:double #ccc;
+    /*border:double #ccc;*/
     width: 100%;
     position: fixed;
     bottom:0;
@@ -36,13 +44,23 @@
     box-sizing: border-box;
     margin:0 0.5%;
     border:1px solid #bbb;
-    border-radius: 2px;
+    border-radius: 4px;
     padding: 0 5px;
     width: 24%;
     font-size: 16px;
     line-height: 1.5em;
     list-style:none;
+    text-align: center;
 }
+
+#select-box ul > li i{
+    margin-right: 2px;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 16px;
+}
+
+
 #selectBoxContainer .op{
     margin:0;
     padding:0 5px 5px 0;
@@ -59,4 +77,24 @@
 
     cursor: pointer;
 
+}
+
+.weapon-icon:before{
+    font-family:'iconfont';
+    content:'\e600';
+}
+.defense-icon:before{
+    font-family:'iconfont';
+    content:'\e602';
+}
+.man-icon{
+    font-family:'iconfont ';
+}
+.man-icon:after{
+    font-family:'iconfont';
+    content:'\e605';
+}
+.other-icon:before{
+    font-family:'iconfont';
+    content:'\e606';
 }
