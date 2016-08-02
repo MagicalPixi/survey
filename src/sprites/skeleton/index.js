@@ -14,5 +14,10 @@ module.exports = function (arg) {
   sp.render = function () {
   }
 
+  sp.die = function () {
+    this.loop=false;
+    this.playAction1(false,true)
+  }
+
   return sp;
 }
