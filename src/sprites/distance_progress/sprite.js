@@ -38,7 +38,7 @@ module.exports = {
 
       graphics.endFill();
 
-      return reverse? width < 0 :width === w;
+      return reverse? width <= 0 :width === w;
     }
     
     graphics.maxWidth = w;

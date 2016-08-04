@@ -47,6 +47,9 @@ function hpBar(maxHp) {
       }
 
       hpText.text = hpDisplayText(maxHp,curHp)
+    },
+    curHpP:function () {
+      return curHp / maxHp
     }
   }
 }
@@ -78,10 +81,11 @@ module.exports = function () {
       var distanceProgress = distanceProgressFn({
         reverse: true,
         maxValue:maxHp,
+        
         getData: function () {
           hpSprite.hpDel(2);
 
-          return 2
+          return hpSprite.curHpP()
         },
         onEnd: function () {
           currentMonster.die()

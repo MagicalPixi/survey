@@ -62,16 +62,14 @@ module.exports = function (arg) {
 
       var d = arg.getData()
 
-      d = d * unit;
+      d = d * progressLength
+      // progressLength =  progressLength  + direction * d;
 
-      progressLength =  progressLength  + direction * d;
-
-      isEnd = progress.updateWidth(progressLength,arg.reverse);
+      isEnd = progress.updateWidth(d,arg.reverse);
 
     }else if(!over){
       arg.onEnd()
       over = true;
-
     }
   }
 
