@@ -171,10 +171,13 @@ module.exports = function () {
     },
 
     remove: function () {
-      var max = stage.children.length - 1
-      console.log(max)
+      var index = stage.getChildIndex(showHp.el())
 
-      stage.removeChildren(0,max)
+      stage.children.forEach(function (c, i) {
+        if(i!==index){
+          stage.removeChild(c)
+        }
+      })
     }
   }
 
