@@ -171,13 +171,8 @@ module.exports = function () {
     },
 
     remove: function () {
-      var index = stage.getChildIndex(showHp.el())
-
-      stage.children.forEach(function (c, i) {
-        if(i!==index){
-          stage.removeChild(c)
-        }
-      })
+      stage.removeChildren()
+      stage.addChild(showHp.el())
     }
   }
 
