@@ -11,6 +11,8 @@ module.exports = function (arg) {
 
   var sp = mySpriteFn(arg)
 
+  sp.maxHp = 640
+
   sp.render = function () {
   }
 

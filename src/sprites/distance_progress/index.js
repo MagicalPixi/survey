@@ -30,7 +30,7 @@ module.exports = function (arg) {
 
   fillFunc(arg,['getData','onEnd'])
 
-  var flag = flagFn();
+  // var flag = flagFn();
   var bar = spriteFn.base();
   var progress = spriteFn.progress();
 
@@ -40,29 +40,33 @@ module.exports = function (arg) {
   var over = isEnd;
   var direction = 1;
 
-  flag.y = 25;
-  flag.x = 5;
+  // flag.y = 25;
+  // flag.x = 5;
+
+  var progressLength = 0;
 
   if(arg.reverse){
-    flag.x = WIDTH
+    progressLength = progress.maxWidth
     direction = -1
   }
 
   container.addChild(bar);
 
   container.addChild(progress);
-  container.addChild(flag)
+  // container.addChild(flag)
 
-  var allWidth = WIDTH * 0.9
+  var unit = progress.maxWidth/arg.maxValue
 
   container.render = function () {
     if(!isEnd){
 
       var d = arg.getData()
 
-      flag.x =  flag.x  + direction * d;
+      d = d * unit;
 
-      isEnd = progress.updateWidth(flag.x+5,arg.reverse);
+      progressLength =  progressLength  + direction * d;
+
+      isEnd = progress.updateWidth(progressLength,arg.reverse);
 
     }else if(!over){
       arg.onEnd()

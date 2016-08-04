@@ -40,6 +40,8 @@ module.exports = {
 
       return reverse? width < 0 :width === w;
     }
+    
+    graphics.maxWidth = w;
 
     return graphics;
   }
