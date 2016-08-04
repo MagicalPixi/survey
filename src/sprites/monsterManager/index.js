@@ -13,6 +13,52 @@ function addMonster(stage, fn) {
 }
 
 
+function showDelHpFn() {
+
+  var stage = new PIXI.Container()
+  stage.render = function () {
+    this.children.forEach(function (c) {
+      c.render && c.render()
+    })
+  }
+
+  stage.name = 'showDelHp'
+
+  return {
+    el:function () {
+      return stage
+    },
+    show:function (num) {
+
+      stage.parent.setChildIndex(stage,stage.parent.children.length-1)
+
+      var delHp = new PIXI.Text(num + ' ',    {
+        font: 'bold italic 60px Arvo',
+        fill: '#333333',
+        align: 'center',
+      })
+
+      delHp.anchor.x = 0.5
+      delHp.x = 320
+      delHp.y = 280
+
+      var count = 60;
+      var d = 2
+
+      delHp.render = function () {
+        if((count--) > 0){
+          this.x += d
+          this.y += d + 2;
+        }else{
+          stage.removeChild(delHp)
+        }
+      }
+
+      stage.addChild(delHp)
+    }
+  }
+}
+
 function hpBar(maxHp) {
 
   var curHp = maxHp;
@@ -30,6 +76,8 @@ function hpBar(maxHp) {
       // stroke: '#a4410e',
       // strokeThickness: 7
     });
+
+  hpText.name = 'hpText';
 
   hpText.width = 300
   hpText.x = 320;
@@ -57,14 +105,19 @@ function hpBar(maxHp) {
 module.exports = function () {
 
   var stage = new PIXI.Container()
-
+  stage.interactive = true;
   stage.render = function () {
     this.children.forEach(function (child) {
       child.render && child.render()
     })
   }
 
+
+  var showHp = showDelHpFn()
+
   var currentMonster = null;
+
+  stage.addChild(showHp.el())
 
   var obj = {
     el: function () {
@@ -73,6 +126,7 @@ module.exports = function () {
     add: function () {
 
       var currentMonster = skeletonFn()
+      currentMonster.name = 'curMonster'
 
       var maxHp = currentMonster.maxHp;
       
@@ -96,7 +150,18 @@ module.exports = function () {
           }, 1000)
         }
       })
+      distanceProgress.name = 'distanceProgress'
 
+      function touchStart() {
+        hpSprite.hpDel(10)
+
+        showHp.show(10)
+      }
+
+      currentMonster.interactive = true;
+
+      currentMonster.on('mousedown',touchStart)
+      currentMonster.on('touchstart',touchStart)
 
       window.cm = currentMonster
 
@@ -106,7 +171,10 @@ module.exports = function () {
     },
 
     remove: function () {
-      stage.removeChildren()
+      var max = stage.children.length - 1
+      console.log(max)
+
+      stage.removeChildren(0,max)
     }
   }
 

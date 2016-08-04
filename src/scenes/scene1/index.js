@@ -25,8 +25,7 @@ module.exports = function (render) {
 
     var man0 = require('../../sprites/man0/')()
 
-
-
+    
     var stage = new PIXI.Container()
 
     bottomManager.insertBy(boxContainer)
