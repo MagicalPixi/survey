@@ -39,16 +39,21 @@ function showDelHpFn() {
       })
 
       delHp.anchor.x = 0.5
-      delHp.x = 320
-      delHp.y = 280
+      delHp.x = delHp.initX = 360
+      delHp.y = delHp.initY = 320
 
-      var count = 60;
-      var d = 2
+      var count = 0,
+        r = 30;
 
+      var circleTrace = pixiLib.math.circleTraceThunk(r)
+      
       delHp.render = function () {
-        if((count--) > 0){
-          this.x += d
-          this.y += d + 2;
+        if((count++) < r){
+          var d = r - circleTrace(count);
+          d *= 6;
+
+          this.x = this.initX + d;
+          this.y = this.initY + count * 6
         }else{
           stage.removeChild(delHp)
         }
