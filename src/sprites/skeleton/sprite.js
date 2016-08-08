@@ -10,9 +10,8 @@ var args = [{
 
     "spriteName" :  "skeleton" ,
 
+    
 
-    "animationSpeed":"0.1",
-  
   
 }]
 

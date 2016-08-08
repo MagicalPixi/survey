@@ -31,7 +31,8 @@
     "man0head",
     "man0body",
     "sceneTree",
-    "skeleton"
+    "skeleton",
+    "goldCoin"
   ],
   "scenes": {},
   "scenesEdit": [],

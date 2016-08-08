@@ -1,8 +1,8 @@
 /**
  * Created by zyg on 16/7/31.
  */
-var skeletonFn = require('../skeleton')
-var distanceProgressFn = require('../distance_progress')
+var skeletonFn = require('../sprites/skeleton/index')
+var distanceProgressFn = require('../sprites/distance_progress/index')
 
 function addMonster(stage, fn) {
 
@@ -11,7 +11,6 @@ function addMonster(stage, fn) {
 
   return currentMonster
 }
-
 
 function showDelHpFn() {
 
@@ -107,7 +106,15 @@ function hpBar(maxHp) {
   }
 }
 
-module.exports = function () {
+/**
+ * @param options
+ * @returns {{el: obj.el, add: obj.add, remove: obj.remove}}
+ */
+module.exports = function (options) {
+
+  if(!options.onDead){
+    options.onDead = function () {}
+  }
 
   var stage = new PIXI.Container()
   stage.interactive = true;
@@ -116,6 +123,8 @@ module.exports = function () {
       child.render && child.render()
     })
   }
+
+  stage.y = 80;
 
 
   var showHp = showDelHpFn()
@@ -178,6 +187,8 @@ module.exports = function () {
     remove: function () {
       stage.removeChildren()
       stage.addChild(showHp.el())
+
+      options.onDead()
     }
   }
 

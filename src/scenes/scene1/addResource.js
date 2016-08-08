@@ -11,6 +11,7 @@ var png = [
   'man0gun',
   'man0head',
   'sceneTree',
+  'goldCoin',
 ];
 
 module.exports = function (add,callback) {

@@ -16,15 +16,20 @@ module.exports = function (render) {
 
   addResource(loader.add.bind(loader),function(){
 
+    var scoreManagerFn = require('../../controllers/scoreManager')
+    var scoreManager = scoreManagerFn()
+
     var bottomManagerFn = require('../../sprites/bottomManager/')
     var bottomManager = bottomManagerFn()
 
-    var monsterManagerFn = require('../../sprites/monsterManager')
-
-    var mm = monsterManagerFn()
+    var monsterManagerFn = require('../../controllers/monsterManager')
+    var mm = monsterManagerFn({
+      onDead:function () {
+        scoreManager.up();
+      }
+    })
 
     var man0 = require('../../sprites/man0/')()
-
     
     var stage = new PIXI.Container()
 
@@ -32,6 +37,7 @@ module.exports = function (render) {
 
     mm.add()
 
+    stage.addChild(scoreManager.el())
     stage.addChild(mm.el())
     stage.addChild(man0)
 

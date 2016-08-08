@@ -2,13 +2,53 @@ var pixiLib = require('pixi-lib');
 
 var args = [{
 
-  textures:pixiLib.getTextures('man'),
+  textures:pixiLib.getTextures('goldCoin'),
 
   
 
     
 
-    "spriteName" :  "man" ,
+    "spriteName" :  "goldCoin" ,
+
+    
+
+  
+
+    
+
+    "scale.x" :  0.25 ,
+
+    
+
+  
+
+    
+
+    "scale.y" :  0.25 ,
+
+    
+
+  
+
+    
+
+    "anchor.x" :  0 ,
+
+    
+
+  
+
+    
+
+    "x" :  20 ,
+
+    
+
+  
+
+    
+
+    "y" :  20 ,
 
     
 
