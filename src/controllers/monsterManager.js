@@ -99,6 +99,8 @@ function hpBar(maxHp) {
       }
 
       hpText.text = hpDisplayText(maxHp,curHp)
+
+      return curHp !== 0;
     },
     curHpP:function () {
       return curHp / maxHp
@@ -116,6 +118,7 @@ module.exports = function (options) {
     options.onDead = function () {}
   }
 
+
   var stage = new PIXI.Container()
   stage.interactive = true;
   stage.render = function () {
@@ -130,6 +133,8 @@ module.exports = function (options) {
   var showHp = showDelHpFn()
 
   var currentMonster = null;
+
+  var autoDamage = 2;
 
   stage.addChild(showHp.el())
 
@@ -151,7 +156,7 @@ module.exports = function (options) {
         maxValue:maxHp,
         
         getData: function () {
-          hpSprite.hpDel(2);
+          hpSprite.hpDel(autoDamage);
 
           return hpSprite.curHpP()
         },
@@ -167,9 +172,11 @@ module.exports = function (options) {
       distanceProgress.name = 'distanceProgress'
 
       function touchStart() {
-        hpSprite.hpDel(10)
+        var damage = options.damage()
 
-        showHp.show(10)
+        if(hpSprite.hpDel(damage)){
+          showHp.show(damage)
+        }
       }
 
       currentMonster.interactive = true;

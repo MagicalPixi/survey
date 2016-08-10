@@ -47,6 +47,15 @@ module.exports = function () {
     },
     up:function () {
       scoreText.setText((score++))
+    },
+    del:function (num) {
+      var newScore = score - num;
+
+      if(newScore > 0){
+        score = newScore
+        return true;
+      }
+      return false;
     }
   }
 }

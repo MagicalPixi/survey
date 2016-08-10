@@ -1,20 +1,20 @@
 /**
  * Created by zyg on 16/7/16.
  */
-var headFn = require('../man0head')
-var bodyFn = require('../man0body')
+var headFn = require('../sprites/man0head/index')
+var bodyFn = require('../sprites/man0body/index')
 
-var eyeFn = require('../man0eye')
+var eyeFn = require('../sprites/man0eye/index')
 
-var footFn = require('../man0foot')
+var footFn = require('../sprites/man0foot/index')
 
-var swordFn = require('../man0sword')
-var shieldFn = require('../man0shield')
+var swordFn = require('../sprites/man0sword/index')
+var shieldFn = require('../sprites/man0shield/index')
 
-var glassesFn =  require('../man0glasses')
+var glassesFn =  require('../sprites/man0glasses/index')
 
 
-var gunFn = require('../man0gun')
+var gunFn = require('../sprites/man0gun/index')
 
 var layoutMap = new Map()
 
@@ -153,6 +153,10 @@ module.exports = function () {
   // container.scale.y = 0.8
 
 
+
+  container.attack = 15;
+
+
   layout(container,headFn)
   layout(container,bodyFn)
   // layout(container,eyeFn,true)
@@ -162,40 +166,35 @@ module.exports = function () {
 
   var count = 0
 
-  container.render = function () {
-    if((count++)%5===0) {
-      this.children.forEach(function (c) {
-        c.render && c.render()
-      })
-    }
-  }
-
-  var equips = [];
-
-  container.equip = function(type){
-
-    equips.forEach(function (c) {
-      container.removeChild(c)
-    })
-
-    equips = []
-
-
-    switch (type){
-      case 0:
-        equips.push(layout(container,swordFn))
-        equips.push(layout(container,shieldFn))
-        break;
-      case 1:
-        equips.push(layout(container,gunFn))
-        break;
-      case 2:
-        equips.push(layout(container,glassesFn))
-        break;
-    }
-  }
-
-  console.log(container.width)
+  // container.render = function () {
+  //   if((count++)%5===0) {
+  //     this.children.forEach(function (c) {
+  //       c.render && c.render()
+  //     })
+  //   }
+  // }
+  // var equips = [];
+  // container.equip = function(type){
+  //
+  //   equips.forEach(function (c) {
+  //     container.removeChild(c)
+  //   })
+  //
+  //   equips = []
+  //
+  //   switch (type){
+  //     case 0:
+  //       equips.push(layout(container,swordFn))
+  //       equips.push(layout(container,shieldFn))
+  //       break;
+  //     case 1:
+  //       equips.push(layout(container,gunFn))
+  //       break;
+  //     case 2:
+  //       equips.push(layout(container,glassesFn))
+  //       break;
+  //   }
+  // }
 
   return container
   
