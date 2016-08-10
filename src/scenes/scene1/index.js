@@ -3,8 +3,7 @@ var addResource = require('./addResource')
 
 
 function addMonster() {
-
-
+  
 }
 
 module.exports = function (render) {

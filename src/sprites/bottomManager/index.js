@@ -4,11 +4,27 @@
 var bottomManagerTemp = require('./bottomManager.ejs')
 
 function bindEvent(container,cb) {
-  
-  container.addEventListener('click',function (e) {
+
+  var lists = document.querySelector('[lists]')
+
+  function fn(e) {
     var target = e.target;
-    
-  })
+
+    var index = target.dataset.index;
+
+    if(lists.dataset.show === index){
+      lists.dataset.show = ''
+    }else{
+      lists.dataset.show = index;
+    }
+  }
+
+  container.addEventListener('click',fn)
+
+  return function () {
+    container.removeEventListener('click',fn);
+  }
+
 }
 
 module.exports = function () {

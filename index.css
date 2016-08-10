@@ -6,6 +6,12 @@
     font-style: normal;
 
 }
+
+ul,li{
+    margin:0;
+    list-style:none;
+    padding:0;
+}
 #selectBoxContainer{
     background-color: #fff;
     box-sizing: border-box;
@@ -34,13 +40,13 @@
     height: 100%;
 }
 
-#select-box ul{
+#select-box .select > ul{
     margin:0;
     padding:0;
     display: flex;
     flex-wrap: wrap;
 }
-#select-box ul > li{
+#select-box .select > ul > li{
     box-sizing: border-box;
     margin:0 0.5%;
     border:1px solid #bbb;
@@ -49,11 +55,10 @@
     width: 24%;
     font-size: 16px;
     line-height: 1.5em;
-    list-style:none;
     text-align: center;
 }
 
-#select-box ul > li i{
+#select-box .select > ul > li i{
     margin-right: 2px;
     text-decoration: none;
     font-style: normal;
@@ -98,3 +103,30 @@
     font-family:'iconfont';
     content:'\e606';
 }
+
+
+.lists{
+
+    position: absolute;
+    bottom:100%;
+}
+
+.weapon-list,
+.defense-list{
+    width: 80px;
+    display: none;
+}
+.weapon-list > li,
+.defense-list > li
+{
+    padding:5px;
+    width: 100%;
+}
+
+.lists[data-show="0"] .weapon-list{
+    display: block;
+}
+.lists[data-show="1"] .defense-list{
+    display: block;
+}
+
