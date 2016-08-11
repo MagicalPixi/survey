@@ -24,6 +24,10 @@ module.exports = function (render) {
     var bottomManagerFn = require('../../sprites/bottomManager/')
     var bottomManager = bottomManagerFn()
 
+    bottomManager.onClickTab(function (code) {
+      man0.equip(code);
+    })
+
     var monsterManagerFn = require('../../controllers/monsterManager')
     var mm = monsterManagerFn({
       damage:function () {

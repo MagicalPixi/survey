@@ -154,7 +154,8 @@ module.exports = function () {
 
 
 
-  container.attack = 15;
+  container.equipments = [];
+  container.initAttack = container.attack = 15;
 
 
   layout(container,headFn)
@@ -195,6 +196,23 @@ module.exports = function () {
   //       break;
   //   }
   // }
+
+  var codeMap = {
+    d1:10,
+    w1:25,
+  }
+
+  container.equip = function (code) {
+    if(container.equipments.indexOf(code) === -1){
+      container.equipments.push(code);
+
+      container.attack = container.initAttack +
+        container.equipments.reduce(function (i, next) {
+          return i + codeMap[next];
+        },0)
+    }
+
+  }
 
   return container
   
