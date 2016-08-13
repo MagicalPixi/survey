@@ -45,14 +45,24 @@ module.exports = function () {
     el:function () {
       return stage;
     },
+    score:function () {
+      return score;
+    },
     up:function () {
-      scoreText.setText((score++))
+      score++;
+      scoreText.setText((score))
     },
     del:function (num) {
+      num = parseInt(num);
+      if(isNaN(num)){
+        console.error('del num');
+        num = 0;
+      }
       var newScore = score - num;
 
       if(newScore > 0){
         score = newScore
+        scoreText.setText(score);
         return true;
       }
       return false;

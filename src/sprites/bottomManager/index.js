@@ -54,10 +54,11 @@ module.exports = function () {
     var target = e.target;
 
     var code = target.dataset.item;
+    var cost = target.dataset.cost;
 
     if(code){
       lists.dataset.show = ''
-      clickTabCb(code);
+      clickTabCb(code,cost);
     }
   }
 

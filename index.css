@@ -110,6 +110,10 @@ ul,li{
     position: absolute;
     bottom:100%;
 }
+.lists > ul > li > span{
+    float: right;
+    pointer-events: none;
+}
 
 .weapon-list,
 .defense-list{

@@ -3,7 +3,7 @@ var addResource = require('./addResource')
 
 
 function addMonster() {
-  
+
 }
 
 module.exports = function (render) {
@@ -13,7 +13,7 @@ module.exports = function (render) {
 
   var boxContainer = document.querySelector('#selectBoxContainer')
 
-  addResource(loader.add.bind(loader),function(){
+  addResource(loader.add.bind(loader), function () {
 
     var manFn = require('../../controllers/man');
     var man0 = manFn()
@@ -24,16 +24,21 @@ module.exports = function (render) {
     var bottomManagerFn = require('../../sprites/bottomManager/')
     var bottomManager = bottomManagerFn()
 
-    bottomManager.onClickTab(function (code) {
-      man0.equip(code);
+    bottomManager.onClickTab(function (code, cost) {
+      console.log(scoreManager.score(),cost)
+      if (scoreManager.score() >= cost) {
+        if (man0.equip(code)) {
+          scoreManager.del(cost)
+        }
+      }
     })
 
     var monsterManagerFn = require('../../controllers/monsterManager')
     var mm = monsterManagerFn({
-      damage:function () {
+      damage: function () {
         return man0.attack;
       },
-      onDead:function () {
+      onDead: function () {
         scoreManager.up();
       }
     })

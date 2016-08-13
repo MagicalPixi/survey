@@ -210,8 +210,8 @@ module.exports = function () {
         container.equipments.reduce(function (i, next) {
           return i + codeMap[next];
         },0)
+      return true;
     }
-
   }
 
   return container
