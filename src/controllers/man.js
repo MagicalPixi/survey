@@ -199,7 +199,9 @@ module.exports = function () {
 
   var codeMap = {
     d1:10,
+    d2:75,
     w1:25,
+    w2:50,
   }
 
   container.equip = function (code) {
@@ -209,10 +211,13 @@ module.exports = function () {
       container.attack = container.initAttack +
         container.equipments.reduce(function (i, next) {
           return i + codeMap[next];
-        },0)
+        },0);
+
+      container.addChild()
+
       return true;
     }
-  }
+  };
 
   return container
   

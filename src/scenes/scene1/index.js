@@ -25,10 +25,11 @@ module.exports = function (render) {
     var bottomManager = bottomManagerFn()
 
     bottomManager.onClickTab(function (code, cost) {
-      console.log(scoreManager.score(),cost)
-      if (scoreManager.score() >= cost) {
-        if (man0.equip(code)) {
-          scoreManager.del(cost)
+      var r0 = scoreManager.score() >= cost;
+      if (r0) {
+        var r=man0.equip(code);
+        if (r) {
+          scoreManager.del(cost);
         }
       }
     })

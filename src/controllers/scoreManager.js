@@ -50,7 +50,7 @@ module.exports = function () {
     },
     up:function () {
       score++;
-      scoreText.setText((score))
+      scoreText.setText(score)
     },
     del:function (num) {
       num = parseInt(num);
@@ -60,7 +60,7 @@ module.exports = function () {
       }
       var newScore = score - num;
 
-      if(newScore > 0){
+      if(newScore >= 0){
         score = newScore
         scoreText.setText(score);
         return true;
