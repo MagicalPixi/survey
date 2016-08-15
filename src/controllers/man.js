@@ -82,8 +82,8 @@ layoutMap.set(footFn,function (fn, side) {
 
 layoutMap.set(swordFn,function (fn) {
   var init = {
-    x:8,
-    y:150,
+    x:55,
+    y:230,
     'scale.x':0.6,
     'scale.y':0.6,
   }
@@ -95,10 +95,10 @@ layoutMap.set(swordFn,function (fn) {
 
 layoutMap.set(shieldFn,function (fn) {
   var init = {
-    x:140,
-    y:210,
-    'scale.x':0.3,
-    'scale.y':0.3,
+    x:130,
+    y:180,
+    'scale.x':0.4,
+    'scale.y':0.4,
   }
 
   var sp = fn(init)
@@ -134,13 +134,25 @@ layoutMap.set(glassesFn,function (fn) {
 })
 
 
-function layout(container,fn,arg) {
+function layout(container,fn,arg,index) {
 
   var sp = layoutMap.get(fn)(fn,arg)
 
-  container.addChild(sp)
+  if(index===undefined){
+    container.addChild(sp)
+  }else{
+    container.addChildAt(sp,index)
+  }
 
   return sp;
+}
+
+function equipClass(type,atk,equipFn) {
+  return {
+    type:type,
+    atk:atk,
+    equipFn:equipFn,
+  }
 }
 
 module.exports = function () {
@@ -149,8 +161,6 @@ module.exports = function () {
 
   container.x = 220
   container.y = 550
-  // container.scale.x = 0.8
-  // container.scale.y = 0.8
 
 
 
@@ -167,13 +177,13 @@ module.exports = function () {
 
   var count = 0
 
-  // container.render = function () {
-  //   if((count++)%5===0) {
-  //     this.children.forEach(function (c) {
-  //       c.render && c.render()
-  //     })
-  //   }
-  // }
+  container.render = function () {
+    if((count++)%5===0) {
+      this.children.forEach(function (c) {
+        c.render && c.render()
+      })
+    }
+  }
   // var equips = [];
   // container.equip = function(type){
   //
@@ -198,11 +208,13 @@ module.exports = function () {
   // }
 
   var codeMap = {
-    d1:10,
-    d2:75,
-    w1:25,
-    w2:50,
-  }
+    d1:equipClass('d',10,shieldFn),
+    d2:equipClass('d',25,shieldFn),
+    w1:equipClass('w',50,swordFn),
+    w2:equipClass('w',85,gunFn),
+  };
+
+  //layout(container,shieldFn)
 
   container.equip = function (code) {
     if(container.equipments.indexOf(code) === -1){
@@ -210,10 +222,13 @@ module.exports = function () {
 
       container.attack = container.initAttack +
         container.equipments.reduce(function (i, next) {
-          return i + codeMap[next];
+          return i + codeMap[next].atk;
         },0);
 
-      container.addChild()
+      var equipObj = codeMap[code];
+
+      container.removeChild(container[equipObj.type]);
+      container[equipObj.type] = layout(container,equipObj.equipFn,null,0);
 
       return true;
     }
