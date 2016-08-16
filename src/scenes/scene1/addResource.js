@@ -12,6 +12,7 @@ var png = [
   'man0head',
   'sceneTree',
   'goldCoin',
+  'axe',
 ];
 
 module.exports = function (add,callback) {

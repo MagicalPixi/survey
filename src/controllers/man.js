@@ -13,6 +13,7 @@ var shieldFn = require('../sprites/man0shield/index')
 
 var glassesFn =  require('../sprites/man0glasses/index')
 
+var axeFn = require('../sprites/axe');
 
 var gunFn = require('../sprites/man0gun/index')
 
@@ -35,7 +36,6 @@ layoutMap.set(bodyFn,function (fn) {
 
   return sp;
 })
-
 
 layoutMap.set(headFn,function(fn){
 
@@ -86,6 +86,21 @@ layoutMap.set(swordFn,function (fn) {
     y:230,
     'scale.x':0.6,
     'scale.y':0.6,
+  }
+
+  var sp = fn(init)
+
+  return sp;
+})
+
+layoutMap.set(axeFn,function (fn) {
+  var init = {
+    x:55,
+    y:250,
+    'scale.x':0.5,
+    'scale.y':0.5,
+    'anchor.x':1,
+    'anchor.y':1,
   }
 
   var sp = fn(init)
@@ -175,6 +190,8 @@ module.exports = function () {
   layout(container,footFn,true)
   layout(container,footFn)
 
+  //layout(container,axeFn);
+
   var count = 0
 
   container.render = function () {
@@ -211,7 +228,7 @@ module.exports = function () {
     d1:equipClass('d',10,shieldFn),
     d2:equipClass('d',25,shieldFn),
     w1:equipClass('w',50,swordFn),
-    w2:equipClass('w',85,gunFn),
+    w2:equipClass('w',85,axeFn),
   };
 
   //layout(container,shieldFn)

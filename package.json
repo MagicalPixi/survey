@@ -20,19 +20,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "resources": [
-    "man",
-    "man0body",
-    "man0eye",
-    "man0foot",
-    "man0sword",
-    "man0shield",
-    "man0glasses",
-    "man0gun",
-    "man0head",
-    "man0body",
-    "sceneTree",
-    "skeleton",
-    "goldCoin"
+    "axe"
   ],
   "scenes": {},
   "scenesEdit": [],
