@@ -28,6 +28,6 @@
   "dependencies": {
     "ejs": "^2.4.2",
     "ejs-loader": "^0.3.0",
-    "pixi-lib": "^1.21.0"
+    "pixi-lib": "^1.22.1"
   }
 }

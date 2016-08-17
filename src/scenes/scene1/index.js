@@ -13,6 +13,11 @@ module.exports = function (render) {
 
   var boxContainer = document.querySelector('#selectBoxContainer')
 
+  
+  var audioPlayObj = pixiLib.audio.loadAudio({
+    hit:'/src/audio/hit.mp3'
+  });
+  
   addResource(loader.add.bind(loader), function () {
 
     var manFn = require('../../controllers/man');
@@ -37,6 +42,10 @@ module.exports = function (render) {
     var monsterManagerFn = require('../../controllers/monsterManager')
     var mm = monsterManagerFn({
       damage: function () {
+
+
+        audioPlayObj.hit();
+        
         return man0.attack;
       },
       onDead: function () {
