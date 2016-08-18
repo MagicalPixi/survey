@@ -20,6 +20,8 @@ module.exports = function (render) {
   
   addResource(loader.add.bind(loader), function () {
 
+    var background = require('../../controllers/gfManager')();
+
     var manFn = require('../../controllers/man');
     var man0 = manFn()
 
@@ -51,7 +53,7 @@ module.exports = function (render) {
       onDead: function () {
         scoreManager.up();
       }
-    })
+    });
 
 
     var stage = new PIXI.Container()
@@ -60,6 +62,7 @@ module.exports = function (render) {
 
     mm.add()
 
+    /stage.addChild(background);
     stage.addChild(scoreManager.el())
     stage.addChild(mm.el())
     stage.addChild(man0)
