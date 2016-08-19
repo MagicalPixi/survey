@@ -9,7 +9,7 @@ function scoreTextFn() {
   
   var t = new PIXI.Text('0 ',{
     font: 'bold italic 60px Arvo',
-    fill: '#333333',
+    fill: '#ffffff',
     align: 'center',
   })
 

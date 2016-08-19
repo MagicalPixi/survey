@@ -33,7 +33,7 @@ function showDelHpFn() {
 
       var delHp = new PIXI.Text(num + ' ',    {
         font: 'bold italic 60px Arvo',
-        fill: '#333333',
+        fill: '#ffffff',
         align: 'center',
       })
 
@@ -75,7 +75,7 @@ function hpBar(maxHp) {
     hpDisplayText(maxHp,curHp),
     {
       font: 'bold italic 40px Arvo',
-      fill: '#333333',
+      fill: '#ffffff',
       align: 'center',
       // stroke: '#a4410e',
       // strokeThickness: 7

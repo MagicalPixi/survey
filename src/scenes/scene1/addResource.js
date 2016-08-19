@@ -15,6 +15,7 @@ var png = [
   'goldCoin',
   'axe',
   'background',
+  'skyBg'
 
 ];
 

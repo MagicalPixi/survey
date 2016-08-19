@@ -20,6 +20,7 @@ module.exports = function (render) {
   
   addResource(loader.add.bind(loader), function () {
 
+    var skyBg = require('../../sprites/skyBg')();
     var background = require('../../controllers/gfManager')();
 
     var manFn = require('../../controllers/man');
@@ -60,9 +61,10 @@ module.exports = function (render) {
 
     bottomManager.insertBy(boxContainer)
 
-    mm.add()
+    mm.add();
 
-    /stage.addChild(background);
+    stage.addChild(skyBg);
+    stage.addChild(background);
     stage.addChild(scoreManager.el())
     stage.addChild(mm.el())
     stage.addChild(man0)
